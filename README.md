@@ -1,2 +1,2 @@
 # PogoApp
-PK 2023 Final Team Project
+PK 2023 Final Team Project.
