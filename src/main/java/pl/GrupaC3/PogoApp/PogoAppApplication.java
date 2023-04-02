@@ -1,4 +1,4 @@
-package main.java.pl.GrupaC3.PogoApp;
+package pl.GrupaC3.PogoApp;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
