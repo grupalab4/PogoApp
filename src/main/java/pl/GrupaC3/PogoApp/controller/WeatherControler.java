@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import pl.GrupaC3.PogoApp.domain.City;
-import pl.GrupaC3.PogoApp.domain.Smog;
+import pl.GrupaC3.PogoApp.model.City;
+import pl.GrupaC3.PogoApp.model.Smog;
 
 @Controller
 public class WeatherControler {

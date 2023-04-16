@@ -27,12 +27,16 @@ public class WeatherData {
 
             List<String> datetime = objectMapper.convertValue(json.get("hourly").get("time"), ArrayList.class);
             result.setDatetime(datetime);
+
             List<Double> temp = objectMapper.convertValue(json.get("hourly").get("temperature_2m"), ArrayList.class);
             result.setTemp(temp);
+
             List<Double> pressure = objectMapper.convertValue(json.get("hourly").get("surface_pressure"), ArrayList.class);
             result.setPressure(pressure);
+
             List<Double> wind = objectMapper.convertValue(json.get("hourly").get("windspeed_10m"), ArrayList.class);
             result.setWind(wind);
+
         } catch (Exception e) {
             System.out.println(e.getMessage());
             System.out.println("location not found");

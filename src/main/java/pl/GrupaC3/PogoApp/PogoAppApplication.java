@@ -14,6 +14,6 @@ public class PogoAppApplication {
 
         Weather data = WeatherData.weeklyWeatherDataForLocation("Piaski wielkie wolin");
 
-        System.out.println(data);;
+        System.out.println(data);
     }
 }
