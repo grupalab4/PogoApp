@@ -1,4 +1,4 @@
-package pl.GrupaC3.PogoApp.domain;
+package pl.GrupaC3.PogoApp.model;
 
 //klasa przechowujaca aktualnie wyszukiwane miasto
 public class City {
