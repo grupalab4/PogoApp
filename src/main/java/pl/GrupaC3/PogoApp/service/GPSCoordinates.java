@@ -1,7 +1,7 @@
-package pl.GrupaC3.PogoApp.niewiemjaktonazwac;
+package pl.GrupaC3.PogoApp.service;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import pl.GrupaC3.PogoApp.niewiemjaktonazwac.model.Coordinates;
+import pl.GrupaC3.PogoApp.model.Coordinates;
 
 import java.net.URL;
 
@@ -11,10 +11,8 @@ public class GPSCoordinates {
         Coordinates coords = new Coordinates();
 
         String link = "https://nominatim.openstreetmap.org/search.php?q="
-                + location
+                + location.replace(' ', '+')
                 + "&format=jsonv2";
-
-        link = link.replace(' ', '+');
 
         try {
             JsonNode result = objectMapper.readTree(new URL(link));

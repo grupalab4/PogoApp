@@ -1,4 +1,4 @@
-package pl.GrupaC3.PogoApp.niewiemjaktonazwac.model;
+package pl.GrupaC3.PogoApp.model;
 
 public class Coordinates {
     private String latitude;

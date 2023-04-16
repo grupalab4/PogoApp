@@ -1,4 +1,4 @@
-package pl.GrupaC3.PogoApp.domain;
+package pl.GrupaC3.PogoApp.model;
 
 import java.util.ArrayList;
 
