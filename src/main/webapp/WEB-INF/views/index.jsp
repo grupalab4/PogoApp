@@ -68,7 +68,6 @@
 				<form:input id="name" path="name" type="text" placeholder="Wpisz miejscowość"/>
 				<input type="submit" id="btnAdd" value ="Szukaj"/>
 			</form:form>
-
 		</div>
 	</div>
 

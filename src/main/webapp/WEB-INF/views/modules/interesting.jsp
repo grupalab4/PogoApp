@@ -24,11 +24,8 @@
 			<div class="col-md-4">
 				<h2 class="section-title">Ciekawe linki</h2>
 				<ul class="arrow-list">
-					<li><a href="http://pogodynka.pl">Pogodynka.pl</a></li>
-					<li><a href="http://www.weatheronline.pl">Weather Online</a></li>
-					<li><a href="http://powietrzewkrakowie.pl">Powietrze w Krakowie</a></li>
+					<li><a href="https://meteo.pl/">meteo.pl</a></li>
 					<li><a href="http://lowcyburz.pl">Łowcy burz</a></li>
-					<li><a href="http://www.twojapogoda.pl/tematyczne/dla-alergikow">Prognoza dla alergików</a></li>
 					<li><a href="http://www.lightningmaps.org/?lang=pl">Wyładowania na żywo</a></li>
 					<li><a href="https://www.flightradar24.com">FlightRadar24</a></li>
 				</ul>
