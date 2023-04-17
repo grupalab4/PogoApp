@@ -62,16 +62,6 @@
 	</div>
 	<!-- .site-header -->
 
-	<div class="hero" data-bg-image="<c:url value="/resources/images/banner.jpg" />">
-		<div class="container">
-			<form:form modelAttribute="city" class="find-location">
-				<form:input id="name" path="name" type="text" placeholder="Wpisz miejscowość"/>
-				<input type="submit" id="btnAdd" value ="Szukaj"/>
-			</form:form>
-
-		</div>
-	</div>
-	
 	<div class="forecast-table">
 		<div class="container">
 			<div class="forecast-container">
