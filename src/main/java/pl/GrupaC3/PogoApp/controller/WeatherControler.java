@@ -1,24 +1,27 @@
 package pl.GrupaC3.PogoApp.controller;
 
-import java.net.MalformedURLException;
-import java.net.URL;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Calendar;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 
 import pl.GrupaC3.PogoApp.model.City;
 import pl.GrupaC3.PogoApp.model.Smog;
+import pl.GrupaC3.PogoApp.service.WeatherData;
 
 @Controller
 public class WeatherControler {
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
-    public String mappingOnWelcome(Model model) {
+    public String mappingOnWelcome(Model model, @CookieValue(defaultValue = "Kraków") String preffered_location) {
         City city = new City();
         model.addAttribute("city", city);
+        model.addAttribute("command", city); // nie mam pojęcia po co to, ale bez tego nie działa...
+        // WeekDayNaming.setWeekDayNames(model);
+        WeatherData.fillModelWithWeatherData(model, preffered_location);
         return "index";
     }
 
@@ -29,30 +32,26 @@ public class WeatherControler {
     }
 
     @RequestMapping("/weekendWeather")
-	public String weekendWeatherEntry(Model model) {
-		model.addAttribute("greeting", "Witaj");
-		return "weekendWeather";
-	}
+    public String weekendWeatherEntry(Model model) {
+        model.addAttribute("greeting", "Witaj");
+        return "weekendWeather";
+    }
 
-	@RequestMapping("/authors")
-	public String authors(Model model) {
-		model.addAttribute("greeting", "Witaj");
-		return "authors";
-	}
+    @RequestMapping("/authors")
+    public String authors(Model model) {
+        model.addAttribute("greeting", "Witaj");
+        return "authors";
+    }
 
-	@RequestMapping("/smogkrakow")
+    @RequestMapping("/smogkrakow")
     public String smogkrakow(Model model) {
         return "smogkrakow";
     }
 
-    private void addAttributeToModelWelcome(Model model, Smog smog, City city) {
-        model.addAttribute("Sensor1", smog.getAmountUGM3(0));
-        model.addAttribute("Sensor2", smog.getAmountUGM3(1));
-        model.addAttribute("Sensor3", smog.getAmountUGM3(2));
-        model.addAttribute("Sensor4", smog.getAmountUGM3(3));
-        model.addAttribute("Sensor5", smog.getAmountUGM3(4));
-        model.addAttribute("Sensor6", smog.getAmountUGM3(5));
-        model.addAttribute("city", city);
-
+    @GetMapping("/weather")
+    public String mappingOnCity(Model model, String name) {
+        WeatherData.fillModelWithWeatherData(model, name);
+        // WeekDayNaming.setWeekDayNames(model);
+        return "weather";
     }
 }
