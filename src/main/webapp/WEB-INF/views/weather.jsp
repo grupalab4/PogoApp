@@ -32,41 +32,7 @@
 <body>
 
 	<div class="site-content">
-		<div class="site-header">
-			<div class="container">
-				<a href="<c:url value="/" />" class="branding"> <img
-					src="<c:url value="/resources/images/logo.png" />" alt=""
-					class="logo">
-					<div class="logo-type">
-						<h1 class="site-title">PogoApp</h1>
-						<small class="site-description">...</small>
-					</div>
-				</a>
-
-				<!-- Default snippet for navigation -->
-				<div class="main-navigation">
-					<button type="button" class="menu-toggle">
-						<i class="fa fa-bars"></i>
-					</button>
-					<ul class="menu">
-						<li class="menu-item"><a href="<c:url value="/" />">Strona
-								główna</a></li>
-						<li class="menu-item"><a href="<c:url value="/peaks" />">Szczyty</a></li>
-						<li class="menu-item"><a
-							href="<c:url value="/weekendWeather"/>">Pogoda na weekend</a></li>
-						<li class="menu-item"><a href="<c:url value="/smogkrakow" />">Smog
-								Kraków</a></li>
-						<li class="menu-item"><a href="<c:url value="/authors" />">Autorzy</a></li>
-					</ul>
-					<!-- .menu -->
-				</div>
-				<!-- .main-navigation -->
-
-				<div class="mobile-navigation"></div>
-
-			</div>
-		</div>
-		<!-- .site-header -->
+	    <jsp:include page="modules/header.jsp" />
 
 		<div class="hero"
 			data-bg-image="<c:url value="/resources/images/weather.jpg" />">
