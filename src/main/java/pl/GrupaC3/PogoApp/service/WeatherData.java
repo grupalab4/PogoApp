@@ -17,6 +17,8 @@ public class WeatherData {
         Coordinates coords = GPSCoordinates.getCoordinatesForLocation(location);
         Weather result = new Weather(coords, location);
 
+        System.out.println(coords);
+
         String link = "https://api.open-meteo.com/v1/forecast?latitude=" +
                 coords.getLatitude() +
                 "&longitude=" +

@@ -13,7 +13,5 @@ public class PogoAppApplication {
         SpringApplication.run(PogoAppApplication.class, args);
 
         Weather data = WeatherData.weeklyWeatherDataForLocation("Piaski wielkie wolin");
-
-        System.out.println(data);
     }
 }

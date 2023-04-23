@@ -12,15 +12,16 @@ public class GPSCoordinates {
 
         String link = "https://nominatim.openstreetmap.org/search.php?q="
                 + location.replace(' ', '+')
-                + "&format=jsonv2";
+                + "&format=jsonv2&accept-language=pl";
 
         try {
             JsonNode result = objectMapper.readTree(new URL(link));
 
             coords.setLatitude(result.get(0).get("lat").asText());
             coords.setLongitude(result.get(0).get("lon").asText());
+            coords.setDisplayName(result.get(0).get("display_name").asText());
         } catch (Exception e) {
-            return new Coordinates("not", "found");
+            return new Coordinates("not", "found", "NOT FOUND");
         }
 
         return coords;
