@@ -1776,21 +1776,53 @@ form input[type="reset"] {
 	background: #323544;
 	display: table;
 	table-layout: fixed;
-	width: 100%;
 	overflow: hidden;
 	border-radius: 10px;
 	margin-top: -150px;
 	margin-bottom: 50px;
 }
 
+.forecast-table {
+	padding-bottom: 10px;
+}
+
 .forecast-container .forecast {
 	display: table-cell;
 	vertical-align: top;
+}
+.hourly_forecast {
+	padding-bottom: 20px;
 }
 
 .forecast-container .forecast:nth-child(even) {
 	background-color: #262936;
 }
+
+.forecast-container-day .forecast-day:nth-child(even) {
+	background-color: #262936;
+}
+
+@media screen and (max-width: 990px) {
+	.forecast-container-day .forecast-day {
+		display: block;
+		width: 100%;
+		float: left;
+	}
+}
+
+.forecast-container-day .forecast-day {
+	display: block;
+}
+
+.forecast-container-day .forecast-day .forecast-content-day {
+	padding: 10px;
+	text-align: center;
+	display: flex;
+	align-content: space-between;
+	justify-content: space-between;
+	align-items: center;
+}
+
 
 @media screen and (max-width: 990px) {
 	.forecast-container .forecast {

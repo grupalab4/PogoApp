@@ -106,4 +106,25 @@ public class WeatherService {
         model.addAttribute("city", weather.getName());
         model.addAttribute("calendar", weather.getDateDaily());
     }
+
+    public static void fillModelWithWeatherDailyData(Model model, String loc) {
+//        Weather weather = weeklyWeatherDataForLocation(loc);
+        ArrayList<String> prediction = new ArrayList<>();
+        ArrayList<String> hours = new ArrayList<>();
+        ArrayList<String> temperature = new ArrayList<>();
+        ArrayList<String> wind = new ArrayList<>();
+        for(int i = 0; i < 24; i++){
+            prediction.add("Zachmurzenie całkowite");
+            hours.add("00:00");
+            temperature.add(String.valueOf(12.8));
+            wind.add(String.valueOf(18.7));
+        }
+
+
+
+        model.addAttribute("hourly_pressure", hours);
+        model.addAttribute("hourly_prediction", prediction);
+        model.addAttribute("hourly_temperature", temperature);
+        model.addAttribute("hourly_wind", wind);
+    }
 }

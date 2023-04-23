@@ -51,6 +51,8 @@
 
 		<jsp:include page="modules/week.jsp" />
 
+		<jsp:include page="modules/day.jsp" />
+
 		<jsp:include page="modules/news.jsp" /> <jsp:include
 			page="modules/interesting.jsp" /> </main>
 		<!-- .main-content -->

@@ -46,6 +46,10 @@
 	
 		<jsp:include page="modules/week.jsp" />
 
+			<h2 class="hourly_forecast">Pogoda godzinowa dla: ${city}</h2>
+
+		<jsp:include page="modules/day.jsp" />
+
 		<jsp:include page="modules/news.jsp" />
 
 		<jsp:include page="modules/interesting.jsp" />
