@@ -12,18 +12,27 @@ public class Weather {
     private Coordinates coords;
     private String name;
 
-    public List<String> time;
-    private List<Double> temp;
-    private List<Double> pressure;
-    private List<Double> wind;
+    private List<String> dateWeekly;
+    private List<Double> temperatureWeekly;
+    private List<Double> pressureWeekly;
+    private List<Double> windWeekly;
 
-    public Weather(Coordinates coords, String name) {
+    private List<String> timeDaily;
+    private List<Double> temperatureDaily;
+    private List<Double> windDaily;
+
+    public Weather(Coordinates coords) {
         this.coords = coords;
-        this.name = name;
-        this.time = new ArrayList<>();
-        this.temp = new ArrayList<>();
-        this.pressure = new ArrayList<>();
-        this.wind = new ArrayList<>();
+        this.name = coords.getDisplayName();
+
+        this.dateWeekly = new ArrayList<>();
+        this.temperatureWeekly = new ArrayList<>();
+        this.pressureWeekly = new ArrayList<>();
+        this.windWeekly = new ArrayList<>();
+
+        this.timeDaily = new ArrayList<>();
+        this.temperatureDaily = new ArrayList<>();
+        this.windDaily = new ArrayList<>();
     }
 
     public Coordinates getCoords() {
@@ -42,36 +51,60 @@ public class Weather {
         this.name = name;
     }
 
-    public List<String> getDatetime() {
-        return time;
+    public List<String> getDateWeekly() {
+        return dateWeekly;
     }
 
-    public void setDatetime(List<String> datetime) {
-        this.time = datetime;
+    public void setDateWeekly(List<String> dateWeekly) {
+        this.dateWeekly = dateWeekly;
     }
 
-    public List<Double> getTemp() {
-        return temp;
+    public List<Double> getTemperatureWeekly() {
+        return temperatureWeekly;
     }
 
-    public void setTemp(List<Double> temp) {
-        this.temp = temp;
+    public void setTemperatureWeekly(List<Double> temperatureWeekly) {
+        this.temperatureWeekly = temperatureWeekly;
     }
 
-    public List<Double> getPressure() {
-        return pressure;
+    public List<Double> getPressureWeekly() {
+        return pressureWeekly;
     }
 
-    public void setPressure(List<Double> pressure) {
-        this.pressure = pressure;
+    public void setPressureWeekly(List<Double> pressureWeekly) {
+        this.pressureWeekly = pressureWeekly;
     }
 
-    public List<Double> getWind() {
-        return wind;
+    public List<Double> getWindWeekly() {
+        return windWeekly;
     }
 
-    public void setWind(List<Double> wind) {
-        this.wind = wind;
+    public void setWindWeekly(List<Double> windWeekly) {
+        this.windWeekly = windWeekly;
+    }
+
+    public List<String> getTimeDaily() {
+        return timeDaily;
+    }
+
+    public void setTimeDaily(List<String> timeDaily) {
+        this.timeDaily = timeDaily;
+    }
+
+    public List<Double> getTemperatureDaily() {
+        return temperatureDaily;
+    }
+
+    public void setTemperatureDaily(List<Double> temperatureDaily) {
+        this.temperatureDaily = temperatureDaily;
+    }
+
+    public List<Double> getWindDaily() {
+        return windDaily;
+    }
+
+    public void setWindDaily(List<Double> windDaily) {
+        this.windDaily = windDaily;
     }
 
     @Override
@@ -79,10 +112,13 @@ public class Weather {
         return "Weather{" +
                 "coords=" + coords +
                 ", name='" + name + '\'' +
-                ", datetime='" + time + '\'' +
-                ", temp='" + temp + '\'' +
-                ", pressure='" + pressure + '\'' +
-                ", wind='" + wind + '\'' +
+                ", dateWeekly=" + dateWeekly +
+                ", temperatureWeekly=" + temperatureWeekly +
+                ", pressureWeekly=" + pressureWeekly +
+                ", windWeekly=" + windWeekly +
+                ", timeDaily=" + timeDaily +
+                ", temperatureDaily=" + temperatureDaily +
+                ", windDaily=" + windDaily +
                 '}';
     }
 }
