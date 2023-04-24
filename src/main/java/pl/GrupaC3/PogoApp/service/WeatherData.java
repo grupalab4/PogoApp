@@ -30,37 +30,37 @@ public class WeatherData {
 
             //System.out.println(json.toPrettyString());
 
-            List<String> dateWeekly = objectMapper.convertValue(json.get("daily").get("time"), ArrayList.class);
-            result.setDateWeekly(dateWeekly);
+            List<String> dateDaily = objectMapper.convertValue(json.get("daily").get("time"), ArrayList.class);
+            result.setDateDaily(dateDaily);
 
-            List<Double> temperatureWeekly = objectMapper.convertValue(json.get("daily").get("temperature_2m_max"), ArrayList.class);
-            result.setTemperatureWeekly(temperatureWeekly);
+            List<Double> temperatureDaily = objectMapper.convertValue(json.get("daily").get("temperature_2m_max"), ArrayList.class);
+            result.setTemperatureDaily(temperatureDaily);
 
-            List<Double> pressureWeekly = objectMapper.convertValue(json.get("hourly").get("surface_pressure"), ArrayList.class);
-            result.setPressureWeekly(averagePressures(pressureWeekly));
+            List<Double> pressureDaily = objectMapper.convertValue(json.get("hourly").get("surface_pressure"), ArrayList.class);
+            result.setPressureDaily(averagePressures(pressureDaily));
 
-            List<Double> windWeekly = objectMapper.convertValue(json.get("daily").get("windspeed_10m_max"), ArrayList.class);
-            result.setWindWeekly(windWeekly);
+            List<Double> windDaily = objectMapper.convertValue(json.get("daily").get("windspeed_10m_max"), ArrayList.class);
+            result.setWindDaily(windDaily);
 
             int currentHour = Calendar.getInstance().get(Calendar.HOUR_OF_DAY);
 
-            List<String> timeDaily = objectMapper.convertValue(json.get("hourly").get("time"), ArrayList.class);
-            List<Double> temperatureDaily = objectMapper.convertValue(json.get("hourly").get("temperature_2m"), ArrayList.class);
-            List<Double> windDaily = objectMapper.convertValue(json.get("hourly").get("windspeed_10m"), ArrayList.class);
+            List<String> timeHourly= objectMapper.convertValue(json.get("hourly").get("time"), ArrayList.class);
+            List<Double> temperatureHourly = objectMapper.convertValue(json.get("hourly").get("temperature_2m"), ArrayList.class);
+            List<Double> windHourly = objectMapper.convertValue(json.get("hourly").get("windspeed_10m"), ArrayList.class);
 
             ArrayList<String> time24H = new ArrayList<>();
             ArrayList<Double> temperature24H = new ArrayList<>();
             ArrayList<Double> wind24H = new ArrayList<>();
 
             for(int i = currentHour; i < currentHour + 24; i++) {
-                time24H.add(timeDaily.get(i));
-                temperature24H.add(temperatureDaily.get(i));
-                wind24H.add(windDaily.get(i));
+                time24H.add(timeHourly.get(i));
+                temperature24H.add(temperatureHourly.get(i));
+                wind24H.add(windHourly.get(i));
             }
 
-            result.setTimeDaily(time24H);
-            result.setTemperatureDaily(temperature24H);
-            result.setWindDaily(wind24H);
+            result.setTimeHourly(time24H);
+            result.setTemperatureHourly(temperature24H);
+            result.setWindHourly(wind24H);
 
         } catch (Exception e) {
             System.out.println(e.getMessage());
@@ -99,11 +99,11 @@ public class WeatherData {
         prediction.add("Pochmurno z przejaśnieniami, słabe opady deszczu");
         prediction.add("Pochmurno, okresami przejaśnienia");
 
-        model.addAttribute("pressure", weather.getPressureWeekly());
+        model.addAttribute("pressure", weather.getPressureDaily());
         model.addAttribute("prediction", prediction);
-        model.addAttribute("temperature", weather.getTemperatureWeekly());
-        model.addAttribute("wind", weather.getWindWeekly());
+        model.addAttribute("temperature", weather.getTemperatureDaily());
+        model.addAttribute("wind", weather.getWindDaily());
         model.addAttribute("city", weather.getName());
-        model.addAttribute("calendar", weather.getDateWeekly());
+        model.addAttribute("calendar", weather.getDateDaily());
     }
 }

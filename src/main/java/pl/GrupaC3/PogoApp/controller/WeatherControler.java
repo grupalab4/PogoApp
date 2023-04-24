@@ -1,15 +1,10 @@
 package pl.GrupaC3.PogoApp.controller;
 
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Calendar;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import pl.GrupaC3.PogoApp.model.City;
-import pl.GrupaC3.PogoApp.model.Smog;
 import pl.GrupaC3.PogoApp.service.WeatherData;
 import pl.GrupaC3.PogoApp.service.WeekDayNaming;
 

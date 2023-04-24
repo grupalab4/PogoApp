@@ -4,9 +4,6 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import pl.GrupaC3.PogoApp.service.WeatherData;
 
-import java.util.Calendar;
-import java.util.Date;
-
 @SpringBootApplication
 public class PogoAppApplication {
     public static void main(String[] args) {
