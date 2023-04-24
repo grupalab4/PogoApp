@@ -18,7 +18,6 @@ public class WeatherControler {
         model.addAttribute("command", city); // nie mam pojęcia po co to, ale bez tego nie działa...
         WeekDayNaming.setWeekDayNames(model);
         WeatherService.fillModelWithWeatherData(model, preffered_location);
-        WeatherService.fillModelWithWeatherDailyData(model, preffered_location);
         return "index";
     }
 
@@ -48,7 +47,6 @@ public class WeatherControler {
     @GetMapping("/weather")
     public String mappingOnCity(Model model, String name) {
         WeatherService.fillModelWithWeatherData(model, name);
-        WeatherService.fillModelWithWeatherDailyData(model, name);
         WeekDayNaming.setWeekDayNames(model);
         return "weather";
     }

@@ -20,7 +20,7 @@
                 <!-- .forecast-header -->
                 <div class="forecast-content-day">
                     <div class="forecast-header">
-                        <div class="day">${"24:00"}</div>
+                        <div class="day">${hours[i]}</div>
                     </div>
                     <div class="forecast-icon">
                         <c:if
