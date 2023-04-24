@@ -91,13 +91,9 @@ public class WeatherService {
     public static void fillModelWithWeatherData(Model model, String loc) {
         Weather weather = getWeatherDataForLocation(loc);
         ArrayList<String> prediction = new ArrayList<>();
-        prediction.add("Zachmurzenie całkowite");
-        prediction.add("Pochmurno, słabe opady deszczu");
-        prediction.add("Pogodnie");
-        prediction.add("Pogodnie, okresami wzrost zachmurzenia do umiarkowanego");
-        prediction.add("Zachmurzenie małe, możliwe słabe opady deszczu");
-        prediction.add("Pochmurno z przejaśnieniami, słabe opady deszczu");
-        prediction.add("Pochmurno, okresami przejaśnienia");
+        for(int i = 0; i < 24; i++){
+            prediction.add("Zachmurzenie całkowite");
+        }
 
         model.addAttribute("pressure", weather.getPressureDaily());
         model.addAttribute("prediction", prediction);
@@ -105,5 +101,10 @@ public class WeatherService {
         model.addAttribute("wind", weather.getWindDaily());
         model.addAttribute("city", weather.getName());
         model.addAttribute("calendar", weather.getDateDaily());
+
+        model.addAttribute("hours", weather.getTimeHourly());
+        model.addAttribute("hourly_prediction", prediction);
+        model.addAttribute("hourly_temperature", weather.getTemperatureHourly());
+        model.addAttribute("hourly_wind", weather.getWindHourly());
     }
 }
