@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
-public class WeatherData {
+public class WeatherService {
     public static Weather getWeatherDataForLocation(String location) {
         ObjectMapper objectMapper = new ObjectMapper();
         Coordinates coords = GPSCoordinates.getCoordinatesForLocation(location);

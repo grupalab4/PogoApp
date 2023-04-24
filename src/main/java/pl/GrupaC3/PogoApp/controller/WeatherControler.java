@@ -5,7 +5,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import pl.GrupaC3.PogoApp.model.City;
-import pl.GrupaC3.PogoApp.service.WeatherData;
+import pl.GrupaC3.PogoApp.service.WeatherService;
 import pl.GrupaC3.PogoApp.service.WeekDayNaming;
 
 @Controller
@@ -17,7 +17,7 @@ public class WeatherControler {
         model.addAttribute("city", city);
         model.addAttribute("command", city); // nie mam pojęcia po co to, ale bez tego nie działa...
         WeekDayNaming.setWeekDayNames(model);
-        WeatherData.fillModelWithWeatherData(model, preffered_location);
+        WeatherService.fillModelWithWeatherData(model, preffered_location);
         return "index";
     }
 
@@ -46,7 +46,7 @@ public class WeatherControler {
 
     @GetMapping("/weather")
     public String mappingOnCity(Model model, String name) {
-        WeatherData.fillModelWithWeatherData(model, name);
+        WeatherService.fillModelWithWeatherData(model, name);
         WeekDayNaming.setWeekDayNames(model);
         return "weather";
     }
