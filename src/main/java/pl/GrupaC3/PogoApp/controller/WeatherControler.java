@@ -1,5 +1,6 @@
 package pl.GrupaC3.PogoApp.controller;
 
+import org.springframework.boot.context.properties.bind.DefaultValue;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -41,8 +42,13 @@ public class WeatherControler {
     }
 
     @RequestMapping("/smog")
-    public String smogkrakow(Model model) {
-        SmogService.fillmodelwithSmogData(model, 400);
+    public String smogkrakow(Model model, @RequestParam(defaultValue = "Kraków") String name, Integer stationID) {
+        if (stationID != null) {
+            SmogService.fillmodelwithSmogData(model, null);
+        } else {
+            var station = SmogService.findStations(name).get(0);
+            SmogService.fillmodelwithSmogData(model, station);
+        }
         return "smog";
     }
 
