@@ -39,7 +39,6 @@
 		<main class="main-content">
 		<div class="fullwidth-block">
 			<div class="container">
-			    <h2 class="section-title">${stationCity}</h2>
 				<h2 class="section-title">Stacja: ${stationName}</h2>
 				<div class="container colored-rows">
 				    <div class="row p-1">
