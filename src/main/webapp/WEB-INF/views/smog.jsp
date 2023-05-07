@@ -39,18 +39,46 @@
 		<main class="main-content">
 		<div class="fullwidth-block">
 			<div class="container">
-				<h2 class="section-title">Smog w Krakowie</h2>
-					<div class="col-12">
-						Al. Krasinskiego ${Sensor1} g/m3<br>  
-						ul. Bulwarowa ${Sensor2} g/m3<br>
-						ul. Bujaka ${Sensor3} g/m3<br>				      
-						ul. Dietla ${Sensor4} g/m3<br>
-						os. Piastow ${Sensor5} g/m3<br>
-						ul. Zloty Rog ${Sensor6} g/m3<br><br>
-						
-						Obowiązująca norma dobowa to maksymalnie 50 µg/m3, i nie może być przekraczana częściej niż przez 35 dni w roku.
-						      
-					</div>
+			    <h2 class="section-title">${stationCity}</h2>
+				<h2 class="section-title">Stacja: ${stationName}</h2>
+				<div class="container colored-rows">
+				    <div class="row p-1">
+                        <p class="col-xs-6 col-sm-2">Dwutlenek siarki</p>
+                        <p class="col-xs-6 col-sm-2">${so2IndexLevel}</p>
+                        <p class="col-sm-8 hidden-xs">
+                             Ekspozycja na dwutlenek siarki może prowadzić do podrażnienia gardła i oczu oraz zaostrzenia astmy, a także przewlekłego zapalenia oskrzeli.
+                        </p>
+				    </div>
+				    <div class="row">
+                        <p class="col-xs-6 col-sm-2">Dwutlenek azotu</p>
+                        <p class="col-xs-6 col-sm-2">${no2IndexLevel}</p>
+                        <p class="col-sm-8 hidden-xs">
+                             Wdychanie wysokich poziomów dwutlenku azotu zwiększa ryzyko wystąpienia problemów z oddychaniem. Kaszel i trudności w oddychaniu są częste, a po dłuższej ekspozycji mogą wystąpić poważniejsze problemy zdrowotne, np. infekcje dróg oddechowych.
+                        </p>
+				    </div>
+				    <div class="row">
+                        <p class="col-xs-6 col-sm-2">Ozon</p>
+                        <p class="col-xs-6 col-sm-2">${o3IndexLevel}</p>
+                        <p class="col-sm-8 hidden-xs">
+                             Ozon przygruntowy może nasilać objawy chorób układu oddechowego, a także prowadzić do podrażnień gardła oraz bólów głowy i klatki piersiowej.
+                        </p>
+				    </div>
+				    <div class="row">
+                        <p class="col-xs-6 col-sm-2">Cząstki PM<sub>10</sub></p>
+                        <p class="col-xs-6 col-sm-2">${pm10IndexLevel}</p>
+                        <p class="col-sm-8 hidden-xs">
+                            Cząstki stałe to wdychane zanieczyszczenia o średnicy mniejszej niż 10 mikrometrów. Cząstki o średnicy przekraczającej 2,5 mikrometra mogą zalegać w drogach oddechowych, powodując problemy ze zdrowiem.
+                        </p>
+				    </div>
+				    <div class="row">
+                        <p class="col-xs-6 col-sm-2">Cząstki PM<sub>2,5</sub></p>
+                        <p class="col-xs-6 col-sm-2">${pm25IndexLevel}</p>
+                        <p class="col-sm-8 hidden-xs">
+                            Drobne cząstki stałe to wdychane zanieczyszczenia o średnicy mniejszej niż 2,5 mikrometra, które mogą dostać się do płuc i krwioobiegu, powodując poważne problemy zdrowotne.
+                        </p>
+				    </div>
+				</div>
+				<h3>${date}</h3>
 			</div>
 		</div>
 
