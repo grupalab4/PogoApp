@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import pl.GrupaC3.PogoApp.model.City;
+import pl.GrupaC3.PogoApp.model.Smog;
 import pl.GrupaC3.PogoApp.service.SmogService;
 import pl.GrupaC3.PogoApp.service.WeatherService;
 import pl.GrupaC3.PogoApp.service.WeekDayNaming;
@@ -42,13 +43,8 @@ public class WeatherControler {
     }
 
     @RequestMapping("/smog")
-    public String smogkrakow(Model model, @RequestParam(defaultValue = "Kraków") String name, Integer stationID) {
-        if (stationID != null) {
-            SmogService.fillmodelwithSmogData(model, null);
-        } else {
-            var station = SmogService.findStations(name).get(0);
-            SmogService.fillmodelwithSmogData(model, station);
-        }
+    public String smogkrakow(Model model, @RequestParam(defaultValue = "Kraków") String name) {
+        SmogService.fillmodelwithSmogData(model, name);
         return "smog";
     }
 

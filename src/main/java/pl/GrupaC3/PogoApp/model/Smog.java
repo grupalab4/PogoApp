@@ -6,6 +6,42 @@ import java.util.ArrayList;
 import java.util.Date;
 
 public class Smog {
+	public String getStationName() {
+		return stationName;
+	}
+
+	public Date getStCalcDate() {
+		return stCalcDate;
+	}
+
+	public IndexLevel getStIndexLevel() {
+		return stIndexLevel;
+	}
+
+	public IndexLevel getSo2IndexLevel() {
+		return so2IndexLevel;
+	}
+
+	public IndexLevel getNo2IndexLevel() {
+		return no2IndexLevel;
+	}
+
+	public IndexLevel getPm10IndexLevel() {
+		return pm10IndexLevel;
+	}
+
+	public IndexLevel getPm25IndexLevel() {
+		return pm25IndexLevel;
+	}
+
+	public IndexLevel getO3IndexLevel() {
+		return o3IndexLevel;
+	}
+
+	public boolean isStIndexStatus() {
+		return stIndexStatus;
+	}
+
 	public class IndexLevel {
 		public int id;
 		public String indexLevelName;
@@ -19,6 +55,8 @@ public class Smog {
 			return indexLevelName;
 		}
 	}
+
+	public String stationName = "Brak danych";
 
 	@JsonProperty("id")
 	public int id;

@@ -15,6 +15,8 @@ import pl.GrupaC3.PogoApp.model.Station;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.*;
+import java.util.concurrent.ConcurrentSkipListSet;
+import java.util.concurrent.SynchronousQueue;
 import java.util.regex.Pattern;
 
 /**
@@ -117,22 +119,14 @@ public class SmogService {
 
         return null;
     }
-    public static void fillmodelwithSmogData(Model model, Station station) {
-        if (station == null) {
-            station = findStations("Kraków").get(0);
-        }
-        // informacje o nazwie stacji znajdują się w
-        // https://api.gios.gov.pl/pjp-api/rest/station/findAll
-        // który zwraca info o wszystkich stacjach, dobrze by było
-        // zapamiętać te dane do ponownego przeszukiwania
-        model.addAttribute("stationName", station.stationName.orElse("Brak danych"));
-        Smog smog = getSmogData(station);
-
-        model.addAttribute("so2IndexLevel", smog.so2IndexLevel);
-        model.addAttribute("no2IndexLevel", smog.no2IndexLevel);
-        model.addAttribute("pm25IndexLevel", smog.pm25IndexLevel);
-        model.addAttribute("pm10IndexLevel", smog.pm10IndexLevel);
-        model.addAttribute("o3IndexLevel", smog.o3IndexLevel);
-        model.addAttribute("date", smog.stCalcDate.toString());
+    public static void fillmodelwithSmogData(Model model, String name) {
+        Vector<Smog> smogData = new Vector<>();
+        SmogService.findStations(name).parallelStream().forEach((station -> {
+            var smog = getSmogData(station);
+            System.out.println("adding: " + station.stationName);
+            smog.stationName = station.stationName.orElse("Brak danych");
+            smogData.add(smog);
+        }));
+        model.addAttribute("smog_data", smogData);
     }
 }
