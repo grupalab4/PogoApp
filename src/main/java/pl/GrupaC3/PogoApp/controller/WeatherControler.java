@@ -1,10 +1,13 @@
 package pl.GrupaC3.PogoApp.controller;
 
+import org.springframework.boot.context.properties.bind.DefaultValue;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import pl.GrupaC3.PogoApp.model.City;
+import pl.GrupaC3.PogoApp.model.Smog;
+import pl.GrupaC3.PogoApp.service.SmogService;
 import pl.GrupaC3.PogoApp.service.WeatherService;
 import pl.GrupaC3.PogoApp.service.WeekDayNaming;
 
@@ -39,9 +42,10 @@ public class WeatherControler {
         return "authors";
     }
 
-    @RequestMapping("/smogkrakow")
-    public String smogkrakow(Model model) {
-        return "smogkrakow";
+    @RequestMapping("/smog")
+    public String smogkrakow(Model model, @RequestParam(defaultValue = "Kraków") String name) {
+        SmogService.fillmodelwithSmogData(model, name);
+        return "smog";
     }
 
     @GetMapping("/weather")
