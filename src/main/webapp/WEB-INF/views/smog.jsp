@@ -32,11 +32,21 @@
 	    <jsp:include page="modules/header.jsp" />
 
 		<div class="hero" data-bg-image="<c:url value="/resources/images/banner2.jpg" />">
-
+		    <div class="container">
+		    	<form class="find-location" action="/smog" method="get">
+		    		<input name="name" type="text" placeholder="Wpisz miejscowość"/>
+		    		<input type="submit" id="btnAdd" value ="Szukaj"/>
+		    	</form>
+		    </div>
 		</div>
 
 		
 		<main class="main-content">
+		<c:if test="${smog_data.size() == 0}">
+		    <div class="fullwidth-block container">
+		        <h2> Nie znaleziono żadnej stacji. </h2>
+		    </div>
+		</c:if>
 		<c:forEach items="${smog_data}" var="smog">
 		    <div class="fullwidth-block">
 		    	<div class="container">
