@@ -92,7 +92,7 @@ public class WeatherService {
         Weather weather = getWeatherDataForLocation(loc);
         ArrayList<String> prediction = new ArrayList<>();
         for(int i = 0; i < 24; i++){
-            prediction.add("Zachmurzenie całkowite");
+            prediction.add("sun_clouds");
         }
 
         model.addAttribute("pressure", weather.getPressureDaily());

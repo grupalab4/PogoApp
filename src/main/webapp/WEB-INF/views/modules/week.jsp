@@ -18,60 +18,70 @@
 								<div class="num">
 									${temperature[0]}<sup>o</sup>C
 								</div>
-								<div class="forecast-icon">
-									<c:if
-									test="${fn:contains(prediction[0], 'Zachmurzenie całkowite')}">
-									<img src="<c:url value="/resources/images/icons/icon-6.svg" />"
-										alt="" width=90>
-								    </c:if>
-								    <c:if
-								    	test="${fn:contains(prediction[0], 'Pochmurno, słabe opady deszczu')}">
-								    	<img src="<c:url value="/resources/images/icons/icon-4.svg" />"
-								    		alt="" width=90>
-								    </c:if>
-
-								    <c:choose>
-								    	<c:when test="${fn:contains(prediction[0], 'Pogodnie')}">
-
-								    		<c:choose>
-								    			<c:when
-								    				test="${fn:contains(prediction[0], 'Pogodnie, okresami wzrost zachmurzenia do umiarkowanego')}">
-
-								    				<img
-								    					src="<c:url value="/resources/images/icons/icon-3.svg" />"
-								    					alt="" width=90>
-								    			</c:when>
-								    			<c:otherwise>
-
-								    				<img
-								    					src="<c:url value="/resources/images/icons/icon-2.svg" />"
-								    					alt="" width=90>
-
-								    			</c:otherwise>
-
-								    		</c:choose>
-
-								    	</c:when>
-
-								    </c:choose>
-
-
-								    <c:if
-								    	test="${fn:contains(prediction[0], 'Zachmurzenie małe, możliwe słabe opady deszczu')}">
-								    	<img src="<c:url value="/resources/images/icons/icon-4.svg" />"
-								    		alt="" width=90>
-								    </c:if>
-								    <c:if
-								    	test="${fn:contains(prediction[0], 'Pochmurno z przejaśnieniami, słabe opady deszczu')}">
-								    	<img src="<c:url value="/resources/images/icons/icon-4.svg" />"
-								    		alt="" width=90>
-								    </c:if>
-								    <c:if
-								    	test="${fn:contains(prediction[0], 'Pochmurno, okresami przejaśnienia')}">
-								    	<img src="<c:url value="/resources/images/icons/icon-3.svg" />"
-								    		alt="" width=90>
-								    </c:if>
-								</div>
+                                <div class="forecast-icon">
+                                    <c:choose>
+                                        <c:when test="${(prediction[0] == 'sunrise')}">
+                                            <img src="<c:url value="/resources/images/icons/icon-1.svg" />"
+                                                 alt="Wschód słońca" width=48>
+                                        </c:when>
+                                        <c:when test="${(prediction[0] == 'sun')}">
+                                            <img src="<c:url value="/resources/images/icons/icon-2.svg" />"
+                                                 alt="Pogodnie" width=48>
+                                        </c:when>
+                                        <c:when test="${(prediction[0] == 'sun_clouds')}">
+                                            <img src="<c:url value="/resources/images/icons/icon-3.svg" />"
+                                                 alt="Pogodnie, okresami wzrost zachmurzenia do umiarkowanego" width=48>
+                                        </c:when>
+                                        <c:when test="${(prediction[0] == 'sun_rain')}">
+                                            <img src="<c:url value="/resources/images/icons/icon-4.svg" />"
+                                                 alt="Zachmurzenie małe, możliwe słabe opady deszczu" width=48>
+                                        </c:when>
+                                        <c:when test="${(prediction[0] == 'cloud')}">
+                                            <img src="<c:url value="/resources/images/icons/icon-5.svg" />"
+                                                 alt="Zachmurzenie małe" width=48>
+                                        </c:when>
+                                        <c:when test="${(prediction[0] == 'clouds_full')}">
+                                            <img src="<c:url value="/resources/images/icons/icon-6.svg" />"
+                                                 alt="Zachmurzenie całkowite" width=48>
+                                        </c:when>
+                                        <c:when test="${(prediction[0] == 'fog')}">
+                                            <img src="<c:url value="/resources/images/icons/icon-7.svg" />"
+                                                 alt="Pochmurno oraz mgliście" width=48>
+                                        </c:when>
+                                        <c:when test="${(prediction[0] == 'tornado')}">
+                                            <img src="<c:url value="/resources/images/icons/icon-8.svg" />"
+                                                 alt="Trąba powietrzna" width=48>
+                                        </c:when>
+                                        <c:when test="${(prediction[0] == 'rain_small')}">
+                                            <img src="<c:url value="/resources/images/icons/icon-9.svg" />"
+                                                 alt="Zachmurzenie małe, możliwe słabe opady deszczu" width=48>
+                                        </c:when>
+                                        <c:when test="${(prediction[0] == 'rain')}">
+                                            <img src="<c:url value="/resources/images/icons/icon-10.svg" />"
+                                                 alt="Zachmurzenie całkowite, możliwe duże opady deszczu" width=48>
+                                        </c:when>
+                                        <c:when test="${(prediction[0] == 'rain_thunder')}">
+                                            <img src="<c:url value="/resources/images/icons/icon-11.svg" />"
+                                                 alt="Zachmurzenie całkowite, możliwa burza z piorunami" width=48>
+                                        </c:when>
+                                        <c:when test="${(prediction[0] == 'thunder')}">
+                                            <img src="<c:url value="/resources/images/icons/icon-12.svg" />"
+                                                 alt="Zachmurzenie z przebłyskami" width=48>
+                                        </c:when>
+                                        <c:when test="${(prediction[0] == 'snow_small')}">
+                                            <img src="<c:url value="/resources/images/icons/icon-13.svg" />"
+                                                 alt="Zachmurzenie, małe opady śniegu" width=48>
+                                        </c:when>
+                                        <c:when test="${(prediction[0] == 'snow')}">
+                                            <img src="<c:url value="/resources/images/icons/icon-14.svg" />"
+                                                 alt="Zachmurzenie, duże opady śniegu" width=48>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <img src="<c:url value="/resources/images/icons/icon-2.svg" />"
+                                                 alt="Pogodnie" width=48>
+                                        </c:otherwise>
+                                    </c:choose>
+                                </div>
 							</div>
 							<span><img
 								src="<c:url value="/resources/images/icon-wind.png" />" alt="">${wind[0]}</span>
@@ -95,69 +105,78 @@
 						</div>
 						<!-- .forecast-header -->
 						<div class="forecast-content">
-							<div class="forecast-icon">
-								<c:if
-									test="${fn:contains(prediction[i], 'Zachmurzenie całkowite')}">
-									<img src="<c:url value="/resources/images/icons/icon-6.svg" />"
-										alt="Zachmurzenie całkowite" width=48>
-								</c:if>
-								<c:if
-									test="${fn:contains(prediction[i], 'Pochmurno, słabe opady deszczu')}">
-									<img src="<c:url value="/resources/images/icons/icon-4.svg" />"
-										alt="Pochmurno, słabe opady deszczu" width=48>
-								</c:if>
-
-								<c:choose>
-									<c:when test="${fn:contains(prediction[i], 'Pogodnie')}">
-
-										<c:choose>
-											<c:when
-												test="${fn:contains(prediction[i], 'Pogodnie, okresami wzrost zachmurzenia do umiarkowanego')}">
-
-												<img
-													src="<c:url value="/resources/images/icons/icon-3.svg" />"
-													alt="Pogodnie, okresami wzrost zachmurzenia do umiarkowanego" width=48>
-											</c:when>
-											<c:otherwise>
-
-												<img
-													src="<c:url value="/resources/images/icons/icon-2.svg" />"
-													alt="Pogodnie" width=48>
-
-											</c:otherwise>
-
-										</c:choose>
-
-									</c:when>
-
-								</c:choose>
-
-
-								<c:if
-									test="${fn:contains(prediction[i], 'Zachmurzenie małe, możliwe słabe opady deszczu')}">
-									<img src="<c:url value="/resources/images/icons/icon-4.svg" />"
-										alt="Zachmurzenie małe, możliwe słabe opady deszczu" width=48>
-								</c:if>
-								<c:if
-									test="${fn:contains(prediction[i], 'Pochmurno z przejaśnieniami, słabe opady deszczu')}">
-									<img src="<c:url value="/resources/images/icons/icon-4.svg" />"
-										alt="Pochmurno z przejaśnieniami, słabe opady deszczu" width=48>
-								</c:if>
-								<c:if
-									test="${fn:contains(prediction[i], 'Pochmurno, okresami przejaśnienia')}">
-									<img src="<c:url value="/resources/images/icons/icon-3.svg" />"
-										alt="Pochmurno, okresami przejaśnienia" width=48>
-								</c:if>
-
-							</div>
-							<div class="degree">
-								${temperature[i]}<sup>o</sup>C
-							</div>
-							<br> <span><img
-								src="<c:url value="/resources/images/icon-wind.png" />" alt=""
-								style="float: left;">${wind[i]} km/h</span> <br> <span><img
-								src="<c:url value="/resources/images/icon-compass.png" />"
-								alt="" style="float: left;">${pressure[i]} hPa</span>
+                        <div class="forecast-icon">
+                            <c:choose>
+                                <c:when test="${(prediction[i] == 'sunrise')}">
+                                    <img src="<c:url value="/resources/images/icons/icon-1.svg" />"
+                                         alt="Wschód słońca" width=48>
+                                </c:when>
+                                <c:when test="${(prediction[i] == 'sun')}">
+                                    <img src="<c:url value="/resources/images/icons/icon-2.svg" />"
+                                         alt="Pogodnie" width=48>
+                                </c:when>
+                                <c:when test="${(prediction[i] == 'sun_clouds')}">
+                                    <img src="<c:url value="/resources/images/icons/icon-3.svg" />"
+                                         alt="Pogodnie, okresami wzrost zachmurzenia do umiarkowanego" width=48>
+                                </c:when>
+                                <c:when test="${(prediction[i] == 'sun_rain')}">
+                                    <img src="<c:url value="/resources/images/icons/icon-4.svg" />"
+                                         alt="Zachmurzenie małe, możliwe słabe opady deszczu" width=48>
+                                </c:when>
+                                <c:when test="${(prediction[i] == 'cloud')}">
+                                    <img src="<c:url value="/resources/images/icons/icon-5.svg" />"
+                                         alt="Zachmurzenie małe" width=48>
+                                </c:when>
+                                <c:when test="${(prediction[i] == 'clouds_full')}">
+                                    <img src="<c:url value="/resources/images/icons/icon-6.svg" />"
+                                         alt="Zachmurzenie całkowite" width=48>
+                                </c:when>
+                                <c:when test="${(prediction[i] == 'fog')}">
+                                    <img src="<c:url value="/resources/images/icons/icon-7.svg" />"
+                                         alt="Pochmurno oraz mgliście" width=48>
+                                </c:when>
+                                <c:when test="${(prediction[i] == 'tornado')}">
+                                    <img src="<c:url value="/resources/images/icons/icon-8.svg" />"
+                                         alt="Trąba powietrzna" width=48>
+                                </c:when>
+                                <c:when test="${(prediction[i] == 'rain_small')}">
+                                    <img src="<c:url value="/resources/images/icons/icon-9.svg" />"
+                                         alt="Zachmurzenie małe, możliwe słabe opady deszczu" width=48>
+                                </c:when>
+                                <c:when test="${(prediction[i] == 'rain')}">
+                                    <img src="<c:url value="/resources/images/icons/icon-10.svg" />"
+                                         alt="Zachmurzenie całkowite, możliwe duże opady deszczu" width=48>
+                                </c:when>
+                                <c:when test="${(prediction[i] == 'rain_thunder')}">
+                                    <img src="<c:url value="/resources/images/icons/icon-11.svg" />"
+                                         alt="Zachmurzenie całkowite, możliwa burza z piorunami" width=48>
+                                </c:when>
+                                <c:when test="${(prediction[i] == 'thunder')}">
+                                    <img src="<c:url value="/resources/images/icons/icon-12.svg" />"
+                                         alt="Zachmurzenie z przebłyskami" width=48>
+                                </c:when>
+                                <c:when test="${(prediction[i] == 'snow_small')}">
+                                    <img src="<c:url value="/resources/images/icons/icon-13.svg" />"
+                                         alt="Zachmurzenie, małe opady śniegu" width=48>
+                                </c:when>
+                                <c:when test="${(prediction[i] == 'snow')}">
+                                    <img src="<c:url value="/resources/images/icons/icon-14.svg" />"
+                                         alt="Zachmurzenie, duże opady śniegu" width=48>
+                                </c:when>
+                                <c:otherwise>
+                                    <img src="<c:url value="/resources/images/icons/icon-2.svg" />"
+                                         alt="Pogodnie" width=48>
+                                </c:otherwise>
+                            </c:choose>
+                        </div>
+						<div class="degree">
+							${temperature[i]}<sup>o</sup>C
+						</div>
+						<br> <span><img
+							src="<c:url value="/resources/images/icon-wind.png" />" alt=""
+							style="float: left;">${wind[i]} km/h</span> <br> <span><img
+							src="<c:url value="/resources/images/icon-compass.png" />"
+							alt="" style="float: left;">${pressure[i]} hPa</span>
 						</div>
 					</div>
 
