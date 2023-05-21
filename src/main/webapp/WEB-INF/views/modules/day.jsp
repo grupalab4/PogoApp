@@ -80,6 +80,14 @@
                                 <img src="<c:url value="/resources/images/icons/icon-14.svg" />"
                                      alt="Zachmurzenie, duże opady śniegu" width=48>
                             </c:when>
+                            <c:when test="${(hourly_prediction[i] == 'moon')}">
+                                <img src="<c:url value="/resources/images/icons/icon-15.svg" />"
+                                     alt="Noc" width=48>
+                            </c:when>
+                            <c:when test="${(hourly_prediction[i] == 'cloud_moon')}">
+                                <img src="<c:url value="/resources/images/icons/icon-16.svg" />"
+                                     alt="Zachmurzenie, noc" width=48>
+                            </c:when>
                             <c:otherwise>
                                 <img src="<c:url value="/resources/images/icons/icon-2.svg" />"
                                      alt="Pogodnie" width=48>
