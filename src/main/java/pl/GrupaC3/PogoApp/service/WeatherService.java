@@ -190,7 +190,7 @@ public class WeatherService {
             else isSnowPossible = false;
 
             if(isPrecipitationProbable) {
-                if(weather.getPrecipitationProbabilityDaily().get(i) <= 50) result.add("sun_clouds");
+                if(weather.getPrecipitationProbabilityDaily().get(i) <= 65) result.add("sun_clouds");
 
                 else {
                     if(isSnowPossible) result.add("snow");
