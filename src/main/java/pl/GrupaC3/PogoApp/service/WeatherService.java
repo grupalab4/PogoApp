@@ -83,6 +83,7 @@ public class WeatherService {
 
         } catch (Exception e) {
             System.out.println(e.getMessage());
+            result.setName("ERROR");
             System.out.println("location not found");
         }
 
@@ -208,6 +209,7 @@ public class WeatherService {
 
     public static void fillModelWithWeatherData(Model model, String loc) {
         Weather weather = getWeatherDataForLocation(loc);
+        if(weather.getName() == "ERROR") return;
 
         ArrayList<String> predictionHourly = fillWeatherIconsHourly(weather);
         ArrayList<String> predictionWeekly = fillWeatherIconsWeekly(weather);

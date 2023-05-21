@@ -9,6 +9,7 @@ import pl.GrupaC3.PogoApp.service.WeatherService;
 public class PogoAppApplication {
     public static void main(String[] args) {
         SpringApplication.run(PogoAppApplication.class, args);
-        Weather adasds = WeatherService.getWeatherDataForLocation("piaski wielkie wolin");
+        Weather adasds = WeatherService.getWeatherDataForLocation("piaski wielki wolin");
+        System.out.println(adasds.getName());
     }
 }
