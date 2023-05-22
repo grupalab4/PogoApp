@@ -186,7 +186,7 @@
                             </c:choose>
                         </div>
 						<div class="degree">
-							${temperature[i]}<sup>o</sup>C
+							${temperature[i]}<sup>o</sup>
 						</div>
 						<br> <span><img
 							src="<c:url value="/resources/images/icon-wind.png" />" alt=""

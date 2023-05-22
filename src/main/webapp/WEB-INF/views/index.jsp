@@ -46,11 +46,11 @@
 	
 		<jsp:include page="modules/week.jsp" />
 
+		<div class="forecast-table">
 			<h2 class="hourly_forecast">Pogoda godzinowa dla: ${city}</h2>
+		</div>
 
 		<jsp:include page="modules/day.jsp" />
-
-		<jsp:include page="modules/news.jsp" />
 
 		<jsp:include page="modules/interesting.jsp" />
 

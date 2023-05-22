@@ -5,7 +5,24 @@
 
 <div class="forecast-table">
     <div class="container">
-        <div class="forecast-container-day" style="margin-top: -50px;">
+        <div class="forecast-container-day overflow-scroll" style="margin-top: -50px; height: 300px;">
+            <div class="forecast-day">
+                <div class="forecast-content-day">
+                    <div class="forecast-header">
+                        <div class="day"><h3>Godzina</h3></div>
+                    </div>
+                    <div>
+
+                    </div>
+                    <div class="degree">
+                        <h3>Temperatura</h3>
+                    </div>
+                    <br>
+                    <span>
+                        <h3>Wiatr</h3>
+                    </span>
+                </div>
+            </div>
 
             <%!int i;%>
 
