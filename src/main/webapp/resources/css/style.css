@@ -2488,3 +2488,52 @@ form input[type="reset"] {
 .tooltip:hover .tooltiptext {
 	visibility: visible;
 }
+
+.d-flex-wrap {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-content: center;
+}
+
+.gap-1 {
+	gap: 10px
+}
+
+.air-quality-card {
+	min-width: 200px;
+	max-width: 300px;
+}
+
+.air-quality {
+	display: flex;
+	justify-content: space-between;
+}
+
+.air-great,
+.air-good,
+.air-acceptable,
+.air-harmful,
+.air-dangerous
+{
+	padding: 2px;
+	border-width: medium;
+	border-bottom: solid;
+	border-radius: 4px;
+}
+
+.air-great {
+	border-color: green;
+}
+.air-good {
+    border-color: orange;
+}
+.air-acceptable {
+    border-color: orangered;
+}
+.air-harmful {
+    border-color: mediumvioletred;
+}
+.air-dangerous {
+    border-color: purple;
+}
