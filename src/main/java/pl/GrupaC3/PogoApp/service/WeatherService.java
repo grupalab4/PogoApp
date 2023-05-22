@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class WeatherService {
     public static Weather getWeatherDataForLocation(String location) {
@@ -55,7 +56,7 @@ public class WeatherService {
 
             int currentHour = Calendar.getInstance().get(Calendar.HOUR_OF_DAY);
 
-            List<String> timeHourly= objectMapper.convertValue(json.get("hourly").get("time"), ArrayList.class);
+            List<String> timeHourly = objectMapper.convertValue(json.get("hourly").get("time"), ArrayList.class);
             List<Double> temperatureHourly = objectMapper.convertValue(json.get("hourly").get("temperature_2m"), ArrayList.class);
             List<Double> windHourly = objectMapper.convertValue(json.get("hourly").get("windspeed_10m"), ArrayList.class);
             List<Double> precipitationHourly = objectMapper.convertValue(json.get("hourly").get("precipitation"), ArrayList.class);
@@ -67,7 +68,7 @@ public class WeatherService {
             ArrayList<Double> precipitation24H = new ArrayList<>();
             ArrayList<Integer> cloudCover24H = new ArrayList<>();
 
-            for(int i = currentHour; i < currentHour + 24; i++) {
+            for (int i = currentHour; i < currentHour + 24; i++) {
                 time24H.add(timeHourly.get(i));
                 temperature24H.add(temperatureHourly.get(i));
                 wind24H.add(windHourly.get(i));
@@ -94,7 +95,7 @@ public class WeatherService {
         List<Double> result = new ArrayList<>();
         for (int i = 0; i < 7; i++) {
             double sum = 0;
-            sum += pressureList.get(i)    ;
+            sum += pressureList.get(i);
             sum += pressureList.get(i + 1);
             sum += pressureList.get(i + 2);
             sum += pressureList.get(i + 3);
@@ -122,53 +123,45 @@ public class WeatherService {
         boolean isSnowPossible;
         boolean isDay;
 
-        for(int i=0; i<24; i++) {
+        for (int i = 0; i < 24; i++) {
             int currentHour = new DateTime(weather.getTimeHourly().get(i)).getHourOfDay();
 
-            if(currentHour == sunriseToday || currentHour == sunsetToday || currentHour == sunriseTomorrow - 24 || currentHour == sunsetTomorrow - 24) {
+            if (currentHour == sunriseToday || currentHour == sunsetToday || currentHour == sunriseTomorrow - 24 || currentHour == sunsetTomorrow - 24) {
                 result.add("sunrise");
                 continue;
             }
 
-            if(currentHour > sunriseToday && currentHour < sunsetToday) isDay = true;
-            else if(currentHour > sunsetToday && currentHour < sunriseTomorrow) isDay = false;
-            else if(currentHour > sunriseTomorrow && currentHour < sunsetTomorrow) isDay = true;
+            if (currentHour > sunriseToday && currentHour < sunsetToday) isDay = true;
+            else if (currentHour > sunsetToday && currentHour < sunriseTomorrow) isDay = false;
+            else if (currentHour > sunriseTomorrow && currentHour < sunsetTomorrow) isDay = true;
             else isDay = false;
 
-            if(weather.getCloudCoverHourly().get(i) > 0) isCloudy = true;
+            if (weather.getCloudCoverHourly().get(i) > 0) isCloudy = true;
             else isCloudy = false;
 
-            if(weather.getPrecipitationHourly().get(i) > 0) precipitation = true;
+            if (weather.getPrecipitationHourly().get(i) > 0) precipitation = true;
             else precipitation = false;
 
-            if(weather.getTemperatureHourly().get(i) <= -3) isSnowPossible = true;
+            if (weather.getTemperatureHourly().get(i) <= -3) isSnowPossible = true;
             else isSnowPossible = false;
 
-            if(!isCloudy && !precipitation) {
-                if(isDay) result.add("sun");
+            if (!isCloudy && !precipitation) {
+                if (isDay) result.add("sun");
                 else result.add("moon");
-            }
-
-            else if(isCloudy && !precipitation) {
-                if(isDay) {
-                    if(weather.getCloudCoverHourly().get(i) >= 90) result.add("cloud");
+            } else if (isCloudy && !precipitation) {
+                if (isDay) {
+                    if (weather.getCloudCoverHourly().get(i) >= 90) result.add("cloud");
                     else result.add("sun_clouds");
-                }
-
-                else {
-                    if(weather.getCloudCoverHourly().get(i) >= 50) result.add("cloud_moon");
+                } else {
+                    if (weather.getCloudCoverHourly().get(i) >= 50) result.add("cloud_moon");
                     else result.add("moon");
                 }
-            }
-
-            else {
-                if(isSnowPossible) {
-                    if(weather.getPrecipitationHourly().get(i) <= 0.3) result.add("snow_small");
+            } else {
+                if (isSnowPossible) {
+                    if (weather.getPrecipitationHourly().get(i) <= 0.3) result.add("snow_small");
                     else result.add("snow");
-                }
-
-                else {
-                    if(weather.getPrecipitationHourly().get(i) <= 0.3) result.add("rain_small");
+                } else {
+                    if (weather.getPrecipitationHourly().get(i) <= 0.3) result.add("rain_small");
                     else result.add("rain");
                 }
             }
@@ -183,23 +176,21 @@ public class WeatherService {
         boolean isPrecipitationProbable;
         boolean isSnowPossible;
 
-        for(int i=0; i<7; i++) {
-            if(weather.getPrecipitationProbabilityDaily().get(i) > 10) isPrecipitationProbable = true;
+        for (int i = 0; i < 7; i++) {
+            if (weather.getPrecipitationProbabilityDaily().get(i) > 10) isPrecipitationProbable = true;
             else isPrecipitationProbable = false;
 
-            if(weather.getTemperatureDaily().get(i) <= -3) isSnowPossible = true;
+            if (weather.getTemperatureDaily().get(i) <= -3) isSnowPossible = true;
             else isSnowPossible = false;
 
-            if(isPrecipitationProbable) {
-                if(weather.getPrecipitationProbabilityDaily().get(i) <= 65) result.add("sun_clouds");
+            if (isPrecipitationProbable) {
+                if (weather.getPrecipitationProbabilityDaily().get(i) <= 65) result.add("sun_clouds");
 
                 else {
-                    if(isSnowPossible) result.add("snow");
+                    if (isSnowPossible) result.add("snow");
                     else result.add("rain");
                 }
-            }
-
-            else {
+            } else {
                 result.add("sun");
             }
         }
@@ -209,7 +200,7 @@ public class WeatherService {
 
     public static void fillModelWithWeatherData(Model model, String loc) {
         Weather weather = getWeatherDataForLocation(loc);
-        if(weather.getName() == "ERROR") return;
+        if (weather.getName() == "ERROR") return;
 
         ArrayList<String> predictionHourly = fillWeatherIconsHourly(weather);
         ArrayList<String> predictionWeekly = fillWeatherIconsWeekly(weather);
@@ -221,7 +212,12 @@ public class WeatherService {
         model.addAttribute("city", weather.getName());
         model.addAttribute("calendar", weather.getDateDaily());
 
-        model.addAttribute("hours", weather.getTimeHourly());
+        model.addAttribute("hours",
+                weather.getTimeHourly()
+                        .stream()
+                        .map(timestr -> timestr.substring(11))
+                        .collect(Collectors.toList())
+        );
         model.addAttribute("hourly_prediction", predictionHourly);
         model.addAttribute("hourly_temperature", weather.getTemperatureHourly());
         model.addAttribute("hourly_wind", weather.getWindHourly());
