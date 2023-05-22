@@ -54,55 +54,65 @@
                     <div class="container colored-rows">
                         <c:if test="${smog.so2IndexLevel != null}">
                             <div class="row p-1">
-                                <p class="col-xs-6 col-sm-2">Dwutlenek siarki</p>
+                                <div class="col-xs-6 col-sm-2 tooltip">
+                                    Dwutlenek siarki
+                                    <p class="tooltiptext">
+                                        Ekspozycja na dwutlenek siarki może prowadzić do podrażnienia gardła i oczu oraz
+                                        zaostrzenia astmy, a także przewlekłego zapalenia oskrzeli.
+                                    </p>
+                                </div>
                                 <p class="col-xs-6 col-sm-2">${smog.so2IndexLevel}</p>
-                                <p class="col-sm-8 hidden-xs">
-                                    Ekspozycja na dwutlenek siarki może prowadzić do podrażnienia gardła i oczu oraz
-                                    zaostrzenia astmy, a także przewlekłego zapalenia oskrzeli.
-                                </p>
                             </div>
                         </c:if>
                         <c:if test="${smog.no2IndexLevel != null}">
                             <div class="row">
-                                <p class="col-xs-6 col-sm-2">Dwutlenek azotu</p>
+                                <div class="col-xs-6 col-sm-2 tooltip">
+                                    Dwutlenek azotu
+                                    <p class="tooltiptext">
+                                        Wdychanie wysokich poziomów dwutlenku azotu zwiększa ryzyko wystąpienia problemów z
+                                        oddychaniem. Kaszel i trudności w oddychaniu są częste, a po dłuższej ekspozycji
+                                        mogą wystąpić poważniejsze problemy zdrowotne, np. infekcje dróg oddechowych.
+                                    </p>
+                                </div>
                                 <p class="col-xs-6 col-sm-2">${smog.no2IndexLevel}</p>
-                                <p class="col-sm-8 hidden-xs">
-                                    Wdychanie wysokich poziomów dwutlenku azotu zwiększa ryzyko wystąpienia problemów z
-                                    oddychaniem. Kaszel i trudności w oddychaniu są częste, a po dłuższej ekspozycji
-                                    mogą wystąpić poważniejsze problemy zdrowotne, np. infekcje dróg oddechowych.
-                                </p>
                             </div>
                         </c:if>
                         <c:if test="${smog.o3IndexLevel != null}">
                             <div class="row">
-                                <p class="col-xs-6 col-sm-2">Ozon</p>
+                                <div class="col-xs-6 col-sm-2 tooltip">
+                                    Ozon
+                                    <p class="tooltiptext">
+                                        Ozon przygruntowy może nasilać objawy chorób układu oddechowego, a także prowadzić
+                                        do podrażnień gardła oraz bólów głowy i klatki piersiowej.
+                                    </p>
+                                </div>
                                 <p class="col-xs-6 col-sm-2">${smog.o3IndexLevel}</p>
-                                <p class="col-sm-8 hidden-xs">
-                                    Ozon przygruntowy może nasilać objawy chorób układu oddechowego, a także prowadzić
-                                    do podrażnień gardła oraz bólów głowy i klatki piersiowej.
-                                </p>
                             </div>
                         </c:if>
                         <c:if test="${smog.pm10IndexLevel != null}">
                             <div class="row">
-                                <p class="col-xs-6 col-sm-2">Cząstki PM<sub>10</sub></p>
+                                <div class="col-xs-6 col-sm-2 tooltip">
+                                    Cząstki PM<sub>10</sub>
+                                    <p class="tooltiptext">
+                                        Cząstki stałe to wdychane zanieczyszczenia o średnicy mniejszej niż 10 mikrometrów.
+                                        Cząstki o średnicy przekraczającej 2,5 mikrometra mogą zalegać w drogach
+                                        oddechowych, powodując problemy ze zdrowiem.
+                                    </p>
+                                </div>
                                 <p class="col-xs-6 col-sm-2">${smog.pm10IndexLevel}</p>
-                                <p class="col-sm-8 hidden-xs">
-                                    Cząstki stałe to wdychane zanieczyszczenia o średnicy mniejszej niż 10 mikrometrów.
-                                    Cząstki o średnicy przekraczającej 2,5 mikrometra mogą zalegać w drogach
-                                    oddechowych, powodując problemy ze zdrowiem.
-                                </p>
                             </div>
                         </c:if>
                         <c:if test="${smog.pm25IndexLevel != null}">
                             <div class="row">
-                                <p class="col-xs-6 col-sm-2">Cząstki PM<sub>2,5</sub></p>
+                                <div class="col-xs-6 col-sm-2 tooltip">
+                                    Cząstki PM<sub>2,5</sub>
+                                    <p class="tooltiptext">
+                                        Drobne cząstki stałe to wdychane zanieczyszczenia o średnicy mniejszej niż 2,5
+                                        mikrometra, które mogą dostać się do płuc i krwioobiegu, powodując poważne problemy
+                                        zdrowotne.
+                                    </p>
+                                </div>
                                 <p class="col-xs-6 col-sm-2">${smog.pm25IndexLevel}</p>
-                                <p class="col-sm-8 hidden-xs">
-                                    Drobne cząstki stałe to wdychane zanieczyszczenia o średnicy mniejszej niż 2,5
-                                    mikrometra, które mogą dostać się do płuc i krwioobiegu, powodując poważne problemy
-                                    zdrowotne.
-                                </p>
                             </div>
                         </c:if>
                     </div>
