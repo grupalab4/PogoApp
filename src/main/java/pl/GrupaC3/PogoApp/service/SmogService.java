@@ -99,9 +99,11 @@ public class SmogService {
                 stations) {
             if(pattern.matcher(station.stationName.orElse("")).find()) {
                 matching.add(station);
-            }
-            if(pattern.matcher(station.addressStreet.orElse("")).find()) {
+            } else if(pattern.matcher(station.addressStreet.orElse("")).find()) {
                 matching.add(station);
+            }
+            if(matching.size() > 15) {
+                break;
             }
         }
 
