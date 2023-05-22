@@ -1341,10 +1341,6 @@ form input[type="reset"] {
 	}
 }
 
-@ -ms-viewport {
-	width: device-width;
-}
-
 .visible-xs,
 .visible-sm,
 .visible-md,
@@ -1831,14 +1827,14 @@ form input[type="reset"] {
 @media screen and (max-width: 990px) {
 	.forecast-container .forecast {
 		display: block;
-		width: 100%;
+		width: 120px;
+		height: 320px;
 		float: left;
 	}
 
 	:not(.today) > .forecast-content {
 	    padding: 10px;
         text-align: center;
-        display: flex;
         align-content: space-between;
         justify-content: space-between;
         align-items: center;
@@ -2463,4 +2459,8 @@ form input[type="reset"] {
 .site-footer .social-links a:hover {
 	background: #009ad8;
 	color: white;
+}
+
+.overflow-scroll {
+	overflow: scroll !important;
 }
