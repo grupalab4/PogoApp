@@ -47,79 +47,93 @@
                 <h2> Nie znaleziono żadnej stacji. </h2>
             </div>
         </c:if>
-        <c:forEach items="${smog_data}" var="smog">
-            <div class="fullwidth-block">
-                <div class="container">
+        <div class="fullwidth-block container d-flex-wrap gap-1">
+            <c:forEach items="${smog_data}" var="smog">
+                <div class="air-quality-card">
                     <h2 class="section-title">Stacja: ${smog.stationName}</h2>
-                    <div class="container colored-rows">
+                    <div class="colored-rows">
                         <c:if test="${smog.so2IndexLevel != null}">
-                            <div class="row p-1">
-                                <div class="col-xs-6 col-sm-2 tooltip">
+                            <div class="air-quality">
+                                <div class="tooltip">
                                     Dwutlenek siarki
                                     <p class="tooltiptext">
                                         Ekspozycja na dwutlenek siarki może prowadzić do podrażnienia gardła i oczu oraz
                                         zaostrzenia astmy, a także przewlekłego zapalenia oskrzeli.
                                     </p>
                                 </div>
-                                <p class="col-xs-6 col-sm-2">${smog.so2IndexLevel}</p>
+                                <jsp:include page="modules/airqualityindicator.jsp">
+                                    <jsp:param name="quality" value="${smog.so2IndexLevel}"/>
+                                </jsp:include>
                             </div>
                         </c:if>
                         <c:if test="${smog.no2IndexLevel != null}">
-                            <div class="row">
-                                <div class="col-xs-6 col-sm-2 tooltip">
+                            <div class="air-quality">
+                                <div class="tooltip">
                                     Dwutlenek azotu
                                     <p class="tooltiptext">
-                                        Wdychanie wysokich poziomów dwutlenku azotu zwiększa ryzyko wystąpienia problemów z
+                                        Wdychanie wysokich poziomów dwutlenku azotu zwiększa ryzyko wystąpienia
+                                        problemów z
                                         oddychaniem. Kaszel i trudności w oddychaniu są częste, a po dłuższej ekspozycji
                                         mogą wystąpić poważniejsze problemy zdrowotne, np. infekcje dróg oddechowych.
                                     </p>
                                 </div>
-                                <p class="col-xs-6 col-sm-2">${smog.no2IndexLevel}</p>
+                                <jsp:include page="modules/airqualityindicator.jsp">
+                                    <jsp:param name="quality" value="${smog.no2IndexLevel}"/>
+                                </jsp:include>
                             </div>
                         </c:if>
                         <c:if test="${smog.o3IndexLevel != null}">
-                            <div class="row">
-                                <div class="col-xs-6 col-sm-2 tooltip">
+                            <div class="air-quality">
+                                <div class="tooltip">
                                     Ozon
                                     <p class="tooltiptext">
-                                        Ozon przygruntowy może nasilać objawy chorób układu oddechowego, a także prowadzić
+                                        Ozon przygruntowy może nasilać objawy chorób układu oddechowego, a także
+                                        prowadzić
                                         do podrażnień gardła oraz bólów głowy i klatki piersiowej.
                                     </p>
                                 </div>
-                                <p class="col-xs-6 col-sm-2">${smog.o3IndexLevel}</p>
+                                <jsp:include page="modules/airqualityindicator.jsp">
+                                    <jsp:param name="quality" value="${smog.o3IndexLevel}"/>
+                                </jsp:include>
                             </div>
                         </c:if>
                         <c:if test="${smog.pm10IndexLevel != null}">
-                            <div class="row">
-                                <div class="col-xs-6 col-sm-2 tooltip">
+                            <div class="air-quality">
+                                <div class="tooltip">
                                     Cząstki PM<sub>10</sub>
                                     <p class="tooltiptext">
-                                        Cząstki stałe to wdychane zanieczyszczenia o średnicy mniejszej niż 10 mikrometrów.
+                                        Cząstki stałe to wdychane zanieczyszczenia o średnicy mniejszej niż 10
+                                        mikrometrów.
                                         Cząstki o średnicy przekraczającej 2,5 mikrometra mogą zalegać w drogach
                                         oddechowych, powodując problemy ze zdrowiem.
                                     </p>
                                 </div>
-                                <p class="col-xs-6 col-sm-2">${smog.pm10IndexLevel}</p>
+                                <jsp:include page="modules/airqualityindicator.jsp">
+                                    <jsp:param name="quality" value="${smog.pm10IndexLevel}"/>
+                                </jsp:include>
                             </div>
                         </c:if>
                         <c:if test="${smog.pm25IndexLevel != null}">
-                            <div class="row">
-                                <div class="col-xs-6 col-sm-2 tooltip">
+                            <div class="air-quality">
+                                <div class="tooltip">
                                     Cząstki PM<sub>2,5</sub>
                                     <p class="tooltiptext">
                                         Drobne cząstki stałe to wdychane zanieczyszczenia o średnicy mniejszej niż 2,5
-                                        mikrometra, które mogą dostać się do płuc i krwioobiegu, powodując poważne problemy
+                                        mikrometra, które mogą dostać się do płuc i krwioobiegu, powodując poważne
+                                        problemy
                                         zdrowotne.
                                     </p>
                                 </div>
-                                <p class="col-xs-6 col-sm-2">${smog.pm25IndexLevel}</p>
+                                <jsp:include page="modules/airqualityindicator.jsp">
+                                    <jsp:param name="quality" value="${smog.pm25IndexLevel}"/>
+                                </jsp:include>
                             </div>
                         </c:if>
                     </div>
                     <h3>${station.stCalcDate.toString()}</h3>
                 </div>
-            </div>
-        </c:forEach>
+            </c:forEach>
+        </div>
 
         <jsp:include page="modules/news.jsp"/>
 
