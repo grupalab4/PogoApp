@@ -7,6 +7,7 @@ import org.springframework.ui.Model;
 import pl.GrupaC3.PogoApp.model.Coordinates;
 import pl.GrupaC3.PogoApp.model.Weather;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -15,7 +16,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class WeatherService {
-    public static Weather getWeatherDataForLocation(String location) {
+    public static Weather getWeatherDataForLocation(String location) throws IOException {
         ObjectMapper objectMapper = new ObjectMapper();
         Coordinates coords = GPSCoordinates.getCoordinatesForLocation(location);
         Weather result = new Weather(coords);
@@ -83,9 +84,7 @@ public class WeatherService {
             result.setCloudCoverHourly(cloudCover24H);
 
         } catch (Exception e) {
-            System.out.println(e.getMessage());
-            result.setName("ERROR");
-            System.out.println("location not found");
+            throw new RuntimeException("received invalid or malformed JSON from Meteo API");
         }
 
         return result;
@@ -198,7 +197,7 @@ public class WeatherService {
         return result;
     }
 
-    public static void fillModelWithWeatherData(Model model, String loc) {
+    public static void fillModelWithWeatherData(Model model, String loc) throws IOException {
         Weather weather = getWeatherDataForLocation(loc);
         if (weather.getName() == "ERROR") return;
 

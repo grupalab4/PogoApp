@@ -21,7 +21,7 @@ public class GPSCoordinates {
             coords.setLongitude(result.get(0).get("lon").asText());
             coords.setDisplayName(result.get(0).get("display_name").asText());
         } catch (Exception e) {
-            return new Coordinates("not", "found", "NOT FOUND");
+            throw new RuntimeException("invalid location");
         }
 
         return coords;
