@@ -19,7 +19,6 @@
 					</button>
 					<ul class="menu">
 						<li class="menu-item"><a href="<c:url value="/" />">Strona główna</a></li>
-						<li class="menu-item"><a href="<c:url value="/weekendWeather"/>">Pogoda na weekend</a></li>
 						<li class="menu-item"><a href="<c:url value="/smog" />">Smog w mieście</a></li>
 						<li class="menu-item current-menu-item"><a href="<c:url value="/authors" />">Autorzy</a></li>
 					</ul>

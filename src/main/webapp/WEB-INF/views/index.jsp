@@ -57,6 +57,12 @@
 	</main>
 	<!-- .main-content -->
 
+	<a id="not-found" href="#">
+		<h1>
+			Nie znaleziono lokalizacji
+		</h1>
+	</a>
+
 	<jsp:include page="modules/footer.jsp" />
 
 	<!-- .site-footer -->
