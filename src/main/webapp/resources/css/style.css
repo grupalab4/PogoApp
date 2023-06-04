@@ -1743,6 +1743,7 @@ form input[type="reset"] {
 
 .hero {
 	background-size: cover;
+	background-position: center;
 	padding: 70px 0;
 	min-height: 300px;
 }
@@ -2540,5 +2541,4 @@ form input[type="reset"] {
 
 .smog-banner {
 	filter: grayscale(80%);
-	background-position: center;
 }
