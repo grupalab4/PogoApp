@@ -15,20 +15,18 @@ import pl.GrupaC3.PogoApp.service.WeekDayNaming;
 public class WeatherControler {
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
-    public String mappingOnWelcome(Model model, @CookieValue(defaultValue = "Kraków") String preffered_location) {
+    public String mappingOnWelcome(Model model, @CookieValue(defaultValue = "Kraków") String preferredLocation) {
         City city = new City();
         model.addAttribute("city", city);
         model.addAttribute("command", city); // nie mam pojęcia po co to, ale bez tego nie działa...
-        model.addAttribute("banner_picture", "cities/Krakow.jpg");
         WeekDayNaming.setWeekDayNames(model);
-        WeatherService.fillModelWithWeatherData(model, preffered_location);
+        WeatherService.fillModelWithWeatherData(model, preferredLocation);
         return "index";
     }
 
     @RequestMapping("/weekendWeather")
     public String weekendWeatherEntry(Model model) {
         model.addAttribute("greeting", "Witaj");
-        model.addAttribute("banner_picture", "cities/Krakow.jpg");
         return "weekendWeather";
     }
 
@@ -41,7 +39,6 @@ public class WeatherControler {
     @RequestMapping("/smog")
     public String smogkrakow(Model model, @RequestParam(defaultValue = "Kraków") String name) {
         SmogService.fillmodelwithSmogData(model, name);
-        model.addAttribute("banner_picture", "cities/Krakow.jpg");
         return "smog";
     }
 
@@ -49,7 +46,6 @@ public class WeatherControler {
     public String mappingOnCity(Model model, String name) {
         WeatherService.fillModelWithWeatherData(model, name);
         WeekDayNaming.setWeekDayNames(model);
-        model.addAttribute("banner_picture", "cities/Krakow.jpg");
         return "weather";
     }
 }
