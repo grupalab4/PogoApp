@@ -1,5 +1,6 @@
 package pl.GrupaC3.PogoApp.controller;
 
+import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.boot.context.properties.bind.DefaultValue;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,12 +16,20 @@ import pl.GrupaC3.PogoApp.service.WeekDayNaming;
 public class WeatherControler {
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
-    public String mappingOnWelcome(Model model, @CookieValue(defaultValue = "Kraków") String preferredLocation) {
+    public String mappingOnWelcome(
+            Model model,
+            @CookieValue(defaultValue = "Kraków") String preffered_location,
+            HttpServletResponse httpServletResponse
+    ) {
         City city = new City();
         model.addAttribute("city", city);
         model.addAttribute("command", city); // nie mam pojęcia po co to, ale bez tego nie działa...
         WeekDayNaming.setWeekDayNames(model);
-        WeatherService.fillModelWithWeatherData(model, preferredLocation);
+        try {
+            WeatherService.fillModelWithWeatherData(model, preffered_location);
+        } catch (Exception e) {
+            return "redirect:/#not-found";
+        }
         return "index";
     }
 
@@ -44,7 +53,11 @@ public class WeatherControler {
 
     @GetMapping("/weather")
     public String mappingOnCity(Model model, String name) {
-        WeatherService.fillModelWithWeatherData(model, name);
+        try {
+            WeatherService.fillModelWithWeatherData(model, name);
+        } catch (Exception e) {
+            return "redirect:/#not-found";
+        }
         WeekDayNaming.setWeekDayNames(model);
         return "weather";
     }

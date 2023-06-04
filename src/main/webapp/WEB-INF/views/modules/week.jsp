@@ -92,10 +92,10 @@
                                 </div>
 							</div>
 							<span><img
-								src="<c:url value="/resources/images/icon-wind.png" />" alt="">${wind[0]}</span>
+								src="<c:url value="/resources/images/icon-wind.png" />" alt="">${wind[0]} km/h</span>
 							<span><img
 								src="<c:url value="/resources/images/icon-compass.png" />"
-								alt="">${pressure[0]}</span>
+								alt="">${pressure[0]} hPa</span>
 						</div>
 					</div>
 
@@ -186,7 +186,7 @@
                             </c:choose>
                         </div>
 						<div class="degree">
-							${temperature[i]}<sup>o</sup>
+							${temperature[i]}<sup>o</sup>C
 						</div>
 						<br> <span><img
 							src="<c:url value="/resources/images/icon-wind.png" />" alt=""
