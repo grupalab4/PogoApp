@@ -224,7 +224,7 @@ public class WeatherService {
         model.addAttribute("banner_picture", chooseBackgroundImage(weather.getName()));
     }
 
-    private static String chooseBackgroundImage(String locationName) {
+    public static String chooseBackgroundImage(String locationName) {
         String result = "cities/";
         locationName = locationName.toLowerCase();
 
@@ -246,9 +246,9 @@ public class WeatherService {
         else if(locationName.contains("świętokrzyskie") || locationName.contains("kielce")) result += "Kielce";
         else if(locationName.contains("warmińsko-mazurskie") || locationName.contains("olsztyn")) result += "Olsztyn";
 
-        else result += "Krakow";
-        result += ".jpg";
+        else return "weather.jpg";
 
+        result += ".jpg";
         System.out.println(result);
         return result;
     }

@@ -35,7 +35,7 @@
 	    <jsp:include page="modules/header.jsp" />
 
 		<div class="hero"
-			data-bg-image="<c:url value="/resources/images/weather.jpg" />">
+			data-bg-image="<c:url value="/resources/images/${banner_picture}" />">
 
 		</div>
 
