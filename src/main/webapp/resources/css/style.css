@@ -2447,11 +2447,7 @@ form input[type="reset"] {
 	color: white;
 }
 
-.site-footer .subscribe-form input[type="submit"]
-PogoApp
-...
-
-    Stro{
+.site-footer .subscribe-form input[type="submit"] {
 	position: absolute;
 	right: 5px;
 	top: 5px;
