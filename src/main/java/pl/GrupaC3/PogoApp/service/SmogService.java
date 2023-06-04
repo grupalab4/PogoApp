@@ -130,5 +130,6 @@ public class SmogService {
             smogData.add(smog);
         }));
         model.addAttribute("smog_data", smogData);
+        model.addAttribute("banner_picture", WeatherService.chooseBackgroundImage(name));
     }
 }

@@ -31,7 +31,7 @@
 <div class="site-content">
 	<jsp:include page="modules/header.jsp" />
 
-	<div class="hero" data-bg-image="<c:url value="/resources/images/banner.jpg" />">
+	<div class="hero" data-bg-image="<c:url value="/resources/images/${banner_picture}" />">
 		<div class="container">
 			<form:form model-attribute="city" class="find-location" action="/weather" method="get">
 				<form:input id="name" path="name" type="text" placeholder="Wpisz miejscowość"/>

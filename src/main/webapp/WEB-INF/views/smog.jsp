@@ -31,7 +31,7 @@
 <div class="site-content">
     <jsp:include page="modules/header.jsp"/>
 
-    <div class="hero" data-bg-image="<c:url value="/resources/images/banner2.jpg" />">
+    <div class="hero smog-banner" data-bg-image="<c:url value="/resources/images/${banner_picture}" />">
         <div class="container">
             <form class="find-location" action="/smog" method="get">
                 <input name="name" type="text" placeholder="Wpisz miejscowość"/>

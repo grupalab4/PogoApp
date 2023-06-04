@@ -15,19 +15,13 @@ import pl.GrupaC3.PogoApp.service.WeekDayNaming;
 public class WeatherControler {
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
-    public String mappingOnWelcome(Model model, @CookieValue(defaultValue = "Kraków") String preffered_location) {
+    public String mappingOnWelcome(Model model, @CookieValue(defaultValue = "Kraków") String preferredLocation) {
         City city = new City();
         model.addAttribute("city", city);
         model.addAttribute("command", city); // nie mam pojęcia po co to, ale bez tego nie działa...
         WeekDayNaming.setWeekDayNames(model);
-        WeatherService.fillModelWithWeatherData(model, preffered_location);
+        WeatherService.fillModelWithWeatherData(model, preferredLocation);
         return "index";
-    }
-
-    @RequestMapping("/peaks")
-    public String peaks(Model model) {
-        model.addAttribute("greeting", "Witaj");
-        return "peaks";
     }
 
     @RequestMapping("/weekendWeather")

@@ -221,5 +221,35 @@ public class WeatherService {
         model.addAttribute("hourly_prediction", predictionHourly);
         model.addAttribute("hourly_temperature", weather.getTemperatureHourly());
         model.addAttribute("hourly_wind", weather.getWindHourly());
+        model.addAttribute("banner_picture", chooseBackgroundImage(weather.getName()));
+    }
+
+    public static String chooseBackgroundImage(String locationName) {
+        String result = "cities/";
+        locationName = locationName.toLowerCase();
+
+        if(locationName.contains("zakopane")) result += "Zakopane";
+        else if(locationName.contains("zachodniopomorskie") || locationName.contains("szczecin")) result += "Szczecin";
+        else if(locationName.contains("kujawsko-pomorskie") || locationName.contains("bydgoszcz")) result += "Bydgoszcz";
+        else if(locationName.contains("pomorskie") || locationName.contains("gdańsk")) result += "Gdansk";
+        else if(locationName.contains("dolnośląskie") || locationName.contains("wrocław")) result += "Wroclaw";
+        else if(locationName.contains("śląskie") || locationName.contains("katowice")) result += "Katowice";
+        else if(locationName.contains("lubelskie") || locationName.contains("lublin")) result += "Lublin";
+        else if(locationName.contains("lubuskie") || locationName.contains("zielona góra")) result += "Zielona_gora";
+        else if(locationName.contains("łódzkie") || locationName.contains("łódź")) result += "Lodz";
+        else if(locationName.contains("małopolskie") || locationName.contains("kraków")) result += "Krakow";
+        else if(locationName.contains("wielkopolskie") || locationName.contains("poznań")) result += "Poznan";
+        else if(locationName.contains("opolskie") || locationName.contains("opole")) result += "Opole";
+        else if(locationName.contains("mazowieckie") || locationName.contains("warszawa")) result += "Warszawa";
+        else if(locationName.contains("podkarpackie") || locationName.contains("rzeszów")) result += "Rzeszow";
+        else if(locationName.contains("podlaskie") || locationName.contains("białystok")) result += "Bialystok";
+        else if(locationName.contains("świętokrzyskie") || locationName.contains("kielce")) result += "Kielce";
+        else if(locationName.contains("warmińsko-mazurskie") || locationName.contains("olsztyn")) result += "Olsztyn";
+
+        else return "weather.jpg";
+
+        result += ".jpg";
+        System.out.println(result);
+        return result;
     }
 }
