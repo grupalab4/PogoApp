@@ -25,15 +25,10 @@ public class WeatherControler {
         return "index";
     }
 
-    @RequestMapping("/peaks")
-    public String peaks(Model model) {
-        model.addAttribute("greeting", "Witaj");
-        return "peaks";
-    }
-
     @RequestMapping("/weekendWeather")
     public String weekendWeatherEntry(Model model) {
         model.addAttribute("greeting", "Witaj");
+        model.addAttribute("banner_picture", "cities/Krakow.jpg");
         return "weekendWeather";
     }
 
@@ -46,6 +41,7 @@ public class WeatherControler {
     @RequestMapping("/smog")
     public String smogkrakow(Model model, @RequestParam(defaultValue = "Kraków") String name) {
         SmogService.fillmodelwithSmogData(model, name);
+        model.addAttribute("banner_picture", "cities/Krakow.jpg");
         return "smog";
     }
 
@@ -53,6 +49,7 @@ public class WeatherControler {
     public String mappingOnCity(Model model, String name) {
         WeatherService.fillModelWithWeatherData(model, name);
         WeekDayNaming.setWeekDayNames(model);
+        model.addAttribute("banner_picture", "cities/Krakow.jpg");
         return "weather";
     }
 }

@@ -2537,3 +2537,8 @@ form input[type="reset"] {
 .air-dangerous {
     border-color: purple;
 }
+
+.smog-banner {
+	filter: grayscale(80%);
+	background-position: center;
+}
