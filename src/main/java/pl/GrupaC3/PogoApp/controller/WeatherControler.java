@@ -19,6 +19,7 @@ public class WeatherControler {
         City city = new City();
         model.addAttribute("city", city);
         model.addAttribute("command", city); // nie mam pojęcia po co to, ale bez tego nie działa...
+        model.addAttribute("banner_picture", "cities/Krakow.jpg");
         WeekDayNaming.setWeekDayNames(model);
         WeatherService.fillModelWithWeatherData(model, preffered_location);
         return "index";
