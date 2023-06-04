@@ -55,3 +55,6 @@ Użyte technologie:
 - Font Awesome
 - Bootstrap
 - Lightbox
+
+
+Po więcej informacji odnośnie aspektów technicznych, zajrzyj do katalogu *docs*
