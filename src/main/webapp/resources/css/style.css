@@ -1825,10 +1825,10 @@ form input[type="reset"] {
 }
 
 
-@media screen and (max-width: 990px) {
+@media screen and (max-width: 1200px) {
 	.forecast-container .forecast {
 		display: block;
-		width: 120px;
+		width: 16.666%;
 		height: 320px;
 		float: left;
 	}
@@ -1899,13 +1899,25 @@ form input[type="reset"] {
 	vertical-align: middle;
 }
 
-@media screen and (max-width: 990px) {
+@media screen and (max-width: 1200px) {
 	.forecast-container .forecast.today {
 		display: block;
 		width: 100%;
 	}
 }
 
+@media screen and (max-width: 660px) {
+	.forecast-container .forecast:not(.today){
+		display: block;
+		width: 100%;
+		height: 120px;
+		float: left;
+	}
+	.forecast-container .forecast:not(.today) .forecast-content{
+		display: flex;
+		padding: 10px;
+	}
+}
 .forecast-container .forecast .forecast-header {
 	background: rgba(0, 0, 0, 0.1);
 	padding: 10px;
