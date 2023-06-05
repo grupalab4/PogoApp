@@ -13,8 +13,8 @@ Główne funkcje aplikacji obejmują:
 uzyskać bieżące informacje pogodowe dla danej lokalizacji. Aplikacja oferuje
 szeroki zakres miast w Polsce, dzięki czemu każdy może znaleźć interesujące go
 miejsce.
-- Prognoza na weekend: Oprócz aktualnych danych pogodowych, aplikacja
-dostarcza także prognozy na nadchodzący weekend. Użytkownicy będą mogli
+- Prognoza na tydzień: Oprócz aktualnych danych pogodowych, aplikacja
+dostarcza także prognozy na nadchodzący tydzień. Użytkownicy będą mogli
 dowiedzieć się, jakie warunki atmosferyczne przewiduje się na najbliższe dni,
 aby dobrze zaplanować swoje aktywności na wolnym powietrzu.
 - Ikony pogodowe: Aplikacja wykorzystuje ilustracje, które odzwierciedlają różne
