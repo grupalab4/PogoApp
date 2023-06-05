@@ -27,6 +27,11 @@ poziomu zanieczyszczeń atmosferycznych, co jest szczególnie istotne dla osób
 zainteresowanych zdrowym trybem życia i środowiskiem naturalnym.
 ![348361351_149269054810702_970691523480461420_n](https://github.com/grupalab4/PogoApp/assets/58656716/42ac6155-d69a-4335-ada3-d75f2eb88878)
 
+### Aplikacja została przygotowana zarówno do widoków desktopowych jak i mobilnych
+![351789601_6615207315165383_8436660261339760501_n](https://github.com/grupalab4/PogoApp/assets/58656716/e02adaf7-1418-414a-aafa-453c91780c6e)
+![345206589_267726325833475_232812928490947881_n](https://github.com/grupalab4/PogoApp/assets/58656716/94da5d93-7e3b-4242-aa5b-2f246f61f974)
+
+
 Aplikacja została stworzona w celu dostarczenia użytkownikom aktualnych danych pogodowych dla wybranych miejscowości. Dokumentacja techniczna obejmuje zarówno aspekty backendu, jak i frontendu, wraz z użytymi technologiami i bibliotekami.
 
 ### Backend:
